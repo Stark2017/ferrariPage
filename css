@@ -1,0 +1,411 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /*efecto desplazamiento*/
+    scroll-behavior: smooth;
+    scroll-padding: var(--altura-nav);
+    scroll-snap-type: both proximity;
+}
+.main{
+    max-width: 1200px;
+    width: 90%;
+    height: auto;
+    margin:auto;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.padre-nav{
+    position: relative;
+    height: 170px;
+}
+nav img{
+    border-radius: 80%;
+    margin: 10px;
+}
+nav{
+    position: fixed;
+    background: rgba(20, 23, 27, 0.7);
+    width: 90%;
+    height: 170px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    margin-bottom: 50px;
+}
+#menu {
+    display: flex;
+    height: auto;
+    list-style: none;
+}
+nav div a{  
+    height: 100px;
+    align-content: flex-start;
+    padding:10px 20px;
+    margin-top: 15%;
+    text-decoration: none;
+    color:#ff4757;
+}
+#menu #ferrari{
+    color:grey;
+}
+nav button{
+    position: absolute;
+    top:25px;
+    right:10%;
+    padding:12px 15px;
+    border: 1px solid #ff4757;
+    background: transparent;
+    color:white;
+    font-weight: lighter;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+    border-radius: 5px;
+    display: none; /*con este metodo lo OCULTO*/
+}
+nav button:hover{
+    background: #ff4757;
+    cursor: pointer;
+}
+header{
+    color:white;
+    text-decoration: solid;
+    background-size: cover;
+    width: 100%;
+    height: 600px;
+    display: flex;
+    justify-content: flex-start;
+    background-image: url("../img/ferrarifondo.png"); 
+}
+/*autocompleta el desplazamiento 
+#about, #team, #contacto, #subscribe{
+    height: calc(100vh - var(--altura-nav));
+    scroll-snap-align: start;
+}*/
+.header-contenido { /*para aplicarle al fondo, otro transparente*/
+    background: rgba(47, 54, 64,0.5);
+    background-size: cover; /*para que ocupe toda la pantalla*/
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 600px;
+    padding-top: 2%;
+    padding-left: 5%;
+}
+.sub-header {
+    padding: 10px;
+    text-align: center;
+    display: block;
+    width: 45%;
+    height: auto;
+}
+header h1{
+    padding: 20px;
+    font-size: xx-large;
+}
+.header-contenido p{
+    font-size: x-large;
+    font-family: inherit;
+}
+header button{
+    margin-top: 25px;
+    padding:12px 15px;
+    border: 1px solid #ff4757;
+    background: transparent;
+    color:white;
+    font-weight: lighter;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+    border-radius: 5px;
+}
+header button:hover{
+    background: #ff4757;
+}
+.subscribe{
+    background:#353b48;
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.subscribe div input{
+    display: block;
+    padding:12px 15px;
+    border: 1px solid #ff4757;
+    background: whitesmoke;
+    color:#353b48;
+    font-weight: lighter;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+.subscribe div button{
+    display: block;
+    padding:12px 15px;
+    border: 1px solid #ff4757;
+    background: #ff4757;
+    color:whitesmoke;
+    font-weight: lighter;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+    border-radius: 5px;
+}
+.subscribe div button:hover{
+    background: #EA2027;
+}
+.tarjetas{
+    margin: 2% 0;
+    display: flex;
+    justify-content: space-between;
+}
+.tarjetas div{    
+    border: 1px solid rgba(145, 145, 148, 0.911);
+    height: 170px;
+    width: 20%;
+    text-align: center;
+}
+.tarjetas div:hover{
+    border: 5px solid rgba(233, 64, 64, 0.699);
+    padding: 2px;
+}
+.tarjetas div h3,p{
+    padding-top: 2vw;   
+}
+.tarjetas .fondo{
+    background: #e94e4e;
+}
+.question{
+    margin:auto;
+    width: 80%;
+    height: 250px;
+    text-align: center;
+    padding-top: 3em;
+}
+.question h3{
+    font-size: 2em;
+}
+.card-body .card-header{
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+}
+.card-header button:hover{
+    background: red;
+    cursor: pointer;
+}
+.card-body button{
+    width: 90%;
+    margin: auto;
+    justify-content: center;
+    padding:12px 20px;
+    border: 1px solid #ff4757;
+    background: #ff4757;
+    color:whitesmoke;
+    font-weight: lighter;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+    border-radius: 5px;
+}
+.card-contenido{
+    text-align: center;
+    padding: 2px;
+    margin: 10px;
+    display:none;   /* lo quitamos de la vista*/
+    transition: all 0.5s;
+}
+/*Este codigo sirve para el efecto de desplazamiento del contenido, lo tengo que agregar a la funcion cuando aparece el block*/
+.desplazaArriba{
+    animation: desplazaArriba 0.8s;
+}
+@keyframes desplazaArriba{
+    0%{
+        transform: translateY(-150px);
+    }
+    100%{
+        transform: translate(0);
+    }
+}
+.desplazaIzquierda{
+    animation: desplazaIzquierda 0.8s;
+}
+@keyframes desplazaIzquierda{
+    0%{
+        transform: translateX(-550px);
+    }
+    100%{
+        transform: translate(0);
+    }
+}
+.desplazaDerecha{
+    animation: desplazaDerecha 0.8s;
+}
+@keyframes desplazaDerecha{
+    0%{
+        transform: translateX(550px);
+    }
+    100%{
+        transform: translate(0);
+    }
+}
+.section-body{
+    background:rgba(145, 145, 148, 0.911);
+    display: flex;
+    flex-wrap: wrap;
+}
+.section-title{
+    width: 100%;
+    height: 130px;
+    margin-top: 2em;
+    padding-top: 2em;
+    color:white;
+    text-align: center;
+}
+.section-title h1{
+    font-weight: bold;
+    font-size: 2em;
+}
+.section-body .card{
+    border-radius: 2%;
+    background: white;
+    flex-direction: row;
+    width: 20%;
+    height: 300px;
+    margin: 2%;
+    align-content: center;
+    text-align: center;
+}
+.section-body .card img{
+    border-radius: 100%;
+    margin-top: 1em;
+}
+.section-body .card .social{
+    margin-top: 3em;
+    text-align: center;
+}
+form {
+    margin-top: 3%;
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+}
+form div p{
+    padding-top: 10px;
+}
+form input{
+    margin-top: 2%;
+    border-radius: 6px;
+    border-color: rgb(224, 223, 223);
+    
+}
+form textarea{
+    margin-top: 2%;
+    border-radius: 6px;
+    border-color: rgb(153, 151, 151);
+}
+form input:hover{
+    border: 4px solid rgba(252, 63, 63, 0.596);
+    transition: ease-in-out, 0.2s;
+}
+form textarea:hover{
+    border: 4px solid rgba(252, 63, 63, 0.596);
+    transition: ease-in-out, 0.2s;
+}
+.form-img{
+    display: flex;
+    flex-direction: row;
+}
+.form-img img{
+    margin-top: 10em;
+    margin-left: 2em;
+}
+form button{
+    margin-top: 2%;
+    background: #ff4757;
+    color:white;
+    font-size: 1em;
+    font-weight: lighter;
+    border-radius: 6px;
+    border-color: rgb(253, 253, 253);
+}
+form button:hover{
+    background: #EA2027;
+    cursor: pointer;
+}
+footer{
+    margin-top: 5%;
+    background:rgba(145, 145, 148, 0.911);
+    padding-top: 3%;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    color:white;
+}
+.social {
+    list-style:none;
+    text-align: right;
+}
+.social a{
+    border-radius: 10%;
+    padding: 8px;
+    margin-left: 1%;
+    text-decoration: none; 
+    color:white;
+    font-size:18px;
+    background: #000000;
+    margin-bottom: 20px;
+}
+.social  .icon-facebook2{
+    background: #2e407e;
+}
+.social  .icon-instagram{
+    background: #e84393;
+}
+.social  .icon-twitter{
+    background: #339dc5;
+}
+.social  .icon-youtube{
+    background: #e83028;
+}
+/*
+.social  .icon-facebook2:hover{
+    background: #2e407e;
+    -webkit-transition:all 800ms ease; 
+}
+.social  .icon-instagram:hover{
+    background: #e84393;
+    -webkit-transition:all 800ms ease;
+}
+.social  .icon-twitter:hover{
+    background: #339dc5;
+    -webkit-transition:all 800ms ease;
+}
+.social  .icon-youtube:hover{
+    background: #e83028;
+    -webkit-transition:all 800ms ease;
+} */
+@media screen and (max-width: 800px){
+    nav button{       /*IMPORTANTE, ACA VA A APARECER LA HAMBURGESA*/
+        display: block;
+}
+#menu{
+    position: fixed; /* fijo el menu abajo del header cuando achico*/
+    top: 0px;
+    left: 0;
+    height: 100%;
+    transition: 1s;
+    flex-direction: column;
+    width: 0;  
+    overflow: hidden;  /*con estas dos propiedades lo haremos desaparecer*/
+    /*lo hacemos aparecer con js*/
+}
+/*modificamos el elemento a del menu, para que queden en block como su padre*/
+#menu a{
+     display: flex; /* hereda el block del padre*/
+     background:  #353b48;
+     border: 2px #fff solid;
+     text-align: left;     
+    }
+}
